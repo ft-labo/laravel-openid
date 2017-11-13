@@ -1,0 +1,37 @@
+{
+    "keys": [
+        {
+            "kty": "RSA",
+            "use": "sig",
+            "kid": "915a8ff6b6f6b226741fd197",
+            "x5t": "915a8ff6b6f6b226741fd197",
+            "n": "modulusdummy1",
+            "e": "exponentdummy1",
+            "x5c": [
+                "dummyx5c"
+            ]
+        },
+        {
+            "kty": "RSA",
+            "use": "sig",
+            "kid": "9f6dc6aef55e250f3251e36d",
+            "x5t": "9f6dc6aef55e250f3251e36d",
+            "n": "modulusdummy2",
+            "e": "exponentdummy2",
+            "x5c": [
+                "dummyx5c"
+            ]
+        },
+        {
+            "kty": "RSA",
+            "use": "sig",
+            "kid": "db0dbb946e4fb390538c5b2e-g8",
+            "x5t": "db0dbb946e4fb390538c5b2e-g8",
+            "n": "modulusdummy3",
+            "e": "exponentdummy3",
+            "x5c": [
+                "dummyx5c"
+            ]
+        }
+    ]
+}
