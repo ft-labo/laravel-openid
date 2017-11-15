@@ -30,7 +30,6 @@ class JWK
         $this->publicKeyUse = $key['use'];
         $this->exponent = $key['e'];
         $this->modulus = $key['n'];
-
     }
 
     public function getPublicKey()

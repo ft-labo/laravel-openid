@@ -29,17 +29,22 @@ class Discovery
     /**
      * Discovery constructor.
      * @param JWT $jwt
-     * @param array $options
-     * @throws Exception
      */
-    function __construct(JWT $jwt, $options = [])
+    function __construct(JWT $jwt)
     {
         $this->jwt = $jwt;
+    }
 
-        if (empty($options['data'])) {
-            $this->data = json_decode($this->fetchConfiguration());
+    /**
+     * @param null $data
+     * @throws Exception
+     */
+    public function init($data = null)
+    {
+        if (empty($data)) {
+            $this->data = json_decode($this->fetchConfiguration(), true);
         } else {
-            $this->data = json_decode($options['data']);
+            $this->data = json_decode($data, true);
         }
     }
 
@@ -60,7 +65,7 @@ class Discovery
 
     public function getJwksUri(): string
     {
-        return $this->data->jwks_uri;
+        return $this->data['jwks_uri'];
     }
 
     public function refreshCache()
@@ -73,6 +78,11 @@ class Discovery
         $client = new HttpClient(["base_uri" => $this->jwt->getIssuer()]);
 
         return $client;
+    }
+
+    public function getData(): ?array
+    {
+        return $this->data;
     }
 
 }

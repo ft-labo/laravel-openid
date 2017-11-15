@@ -22,7 +22,6 @@ class JWKTest extends TestCase
         $this->assertInternalType('resource', $jwk->getPublicKey());
     }
 
-
     private function getKey()
     {
         $jsonArray = json_decode(self::CERTIFICATE_KEYS, true);
