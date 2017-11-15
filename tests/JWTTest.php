@@ -3,8 +3,8 @@
 namespace ForTheLocal\Laravel\OpenID;
 
 use ForTheLocal\Test\TestCase as TestCase;
-use Lcobucci\JWT\Builder;
 use Lcobucci\JWT\Signer;
+use Lcobucci\JWT\Builder;
 use Lcobucci\JWT\Signer\Key;
 use Lcobucci\JWT\Signer\Rsa\Sha256;
 
@@ -70,7 +70,7 @@ class JWTTest extends TestCase
         $this->assertFalse($jwt->verify($jwk));
     }
 
-    private function createDummyIdToken(string $privateKey, int $expiresAt, Signer $signer = null)
+    protected function createDummyIdToken(string $privateKey, int $expiresAt, Signer $signer = null)
     {
 
         $signer = $signer ?? new Sha256();

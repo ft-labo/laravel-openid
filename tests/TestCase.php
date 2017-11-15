@@ -51,4 +51,5 @@ abstract class TestCase extends OrchestraTestCase
     {
         return json_encode(json_decode($jsonString));
     }
+
 }
