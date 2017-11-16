@@ -3,6 +3,7 @@
 namespace ForTheLocal\Laravel\OpenID;
 
 use ForTheLocal\Test\TestCase as TestCase;
+use GuzzleHttp\Client as HttpClient;
 use Lcobucci\JWT\Builder;
 use Lcobucci\JWT\Signer\Key;
 use Lcobucci\JWT\Signer\Rsa\Sha256;
@@ -38,7 +39,7 @@ class DiscoveryTest extends TestCase
         $mockResponse->shouldReceive('getStatusCode')->andReturn(200);
         $mockResponse->shouldReceive('getBody')->andReturn($this->minifyJson($configJson));
 
-        $mockClient = \Mockery::mock();
+        $mockClient = \Mockery::mock(HttpClient::class);
         $mockClient->shouldReceive('get')->andReturn($mockResponse);
 
         $discovery->shouldReceive('getConfiguredHttpClient')->andReturn($mockClient);

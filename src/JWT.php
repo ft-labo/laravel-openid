@@ -24,14 +24,24 @@ class JWT
         $this->token = (new Parser())->parse($str);
     }
 
-    public function getHeaders()
+    public function getHeaders(): array
     {
         return $this->token->getHeaders();
     }
 
-    public function getClaims()
+    public function getClaims(): array
     {
         return $this->token->getClaims();
+    }
+
+    public function getClaim(string $name): ?string
+    {
+        return $this->token->getClaim($name);
+    }
+
+    public function hasClaim(string $name): bool
+    {
+        return $this->token->hasClaim($name);
     }
 
     public function getKid(): string
@@ -49,7 +59,7 @@ class JWT
         return $this->token->getClaim('iss');
     }
 
-    public function getExpireAt()
+    public function getExpireAt(): string
     {
         return $this->token->getClaim('exp');
     }
@@ -59,7 +69,7 @@ class JWT
         return $this->getExpireAt() < time();
     }
 
-    public function getAlgorithm()
+    public function getAlgorithm(): string
     {
         return $this->token->getHeader('alg');
     }

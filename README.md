@@ -1,17 +1,17 @@
 # Laravel OpenID
 Laravel implementations to handle OpenID.
 
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/forthelocal/laravel-tokens.svg)]()
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/forthelocal/laravel-openid.svg)]()
 [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)]()
 
-[![Build Status](https://travis-ci.org/forthelocal/laravel-tokens.svg?branch=master)](https://travis-ci.org/forthelocal/laravel-tokens) 
-[![codecov](https://codecov.io/gh/forthelocal/laravel-tokens/branch/master/graph/badge.svg)](https://codecov.io/gh/forthelocal/laravel-tokens)
+[![Build Status](https://travis-ci.org/forthelocal/laravel-openid.svg?branch=master)](https://travis-ci.org/forthelocal/laravel-openid) 
+[![codecov](https://codecov.io/gh/forthelocal/laravel-openid/branch/master/graph/badge.svg)](https://codecov.io/gh/forthelocal/laravel-openid)
 
 ## Usage
 
 ### Installation
 ```bash
-composer require  forthelocal/laravel-openid
+composer require forthelocal/laravel-openid
 ```
 
 # License

@@ -17,14 +17,15 @@ use GuzzleHttp\Client as HttpClient;
 class Discovery
 {
     const DURATION_DEFAULT = 60 * 24; // 24 hours
+    const WELL_KNOWN_PATH = '.well-known/openid-configuration';
     protected $primaryKey = 'issuer';
     protected $fillable = ['data'];
 
-    private $jwt;
-    private $data;
+    protected $jwt;
+    protected $data;
 
     // TODO enable cache the data in db by configuration with env.
-    private $cacheEnabled = false;
+    protected $cacheEnabled = false;
 
     /**
      * Discovery constructor.
@@ -55,7 +56,7 @@ class Discovery
     public function fetchConfiguration(): string
     {
         $client = $this->getConfiguredHttpClient();
-        $res = $client->get('.well-known/openid-configuration');
+        $res = $client->get(self::WELL_KNOWN_PATH);
         if ($res->getStatusCode() != 200) {
             throw new Exception('fail to connect to endpoint.');
         }
@@ -73,7 +74,7 @@ class Discovery
         // TODO
     }
 
-    public function getConfiguredHttpClient()
+    public function getConfiguredHttpClient(): HttpClient
     {
         $client = new HttpClient(["base_uri" => $this->jwt->getIssuer()]);
 
