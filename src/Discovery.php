@@ -56,7 +56,7 @@ class Discovery
     public function fetchConfiguration(): string
     {
         $client = $this->getConfiguredHttpClient();
-        $res = $client->get(self::WELL_KNOWN_PATH);
+        $res = $client->get(self::WELL_KNOWN_PATH.'?p='.$this->jwt->getClaim('tfp'));
         if ($res->getStatusCode() != 200) {
             throw new Exception('fail to connect to endpoint.');
         }
