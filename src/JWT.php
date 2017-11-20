@@ -81,8 +81,6 @@ class JWT
      */
     public function verify(JWK $jwk): bool
     {
-
-
         // https://www.rfc-editor.org/rfc/rfc7518.txt
         switch ($this->getAlgorithm()) {
             case "RS256":
